@@ -1,9 +1,11 @@
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class AboutMe {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+    try {
+         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
        
         System.out.println("Digite seu nome: ");
         String nome = scanner.next();
@@ -23,5 +25,10 @@ public class AboutMe {
         System.out.println("Minha altura é " + altura + "cm");
 
         scanner.close();
+    
+        }
+        catch(InputMismatchException e){
+            System.err.println("Os campos idade e altura devem ser numéricos."); //System.err substitui o System.out
+        }
     }
 }
